@@ -1,6 +1,20 @@
-<video width="1920" height="1080" autoplay>
+<video id="vid" width="1920" height="1080" playsinline>
   <source src="video.mp4" type="video/mp4">
 </video>
 <audio autoplay loop>
   <source src="audio.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+    //document.getElementById('vid').play();
+	document.body.addEventListener("click", function () {
+      var allVideos = document.querySelectorAll('video');
+      for (var i = 0; i < allVideos.length; i++) {
+          allVideos[i].play();
+      }
+	  var allaudios = document.querySelectorAll('audio');
+      for (var i = 0; i < allaudios.length; i++) {
+          allaudios[i].play();
+      }
+    },{ once: true });
+</script>
