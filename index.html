@@ -6,15 +6,29 @@
 </audio>
 
 <script>
+    var isVideoPlaying = false;
+	var isMusicPlaying = false;
     //document.getElementById('vid').play();
 	document.body.addEventListener("click", function () {
       var allVideos = document.querySelectorAll('video');
       for (var i = 0; i < allVideos.length; i++) {
-          allVideos[i].play();
+        if(allVideos[i].paused) {
+		  allVideos[i].play();
+		  isVideoPlaying = true;
+		} else {
+		  allVideos[i].pause();
+		  isVideoPlaying = false;
+		}
       }
 	  var allaudios = document.querySelectorAll('audio');
       for (var i = 0; i < allaudios.length; i++) {
+	    if(allaudios[i].paused) {
           allaudios[i].play();
-      }
-    },{ once: true });
+		  isMusicPlaying = true;
+        } else {
+		  allaudios[i].pause();
+		  isMusicPlaying = false;
+		}
+	  }
+    });
 </script>
